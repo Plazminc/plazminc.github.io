@@ -1,30 +1,24 @@
 <html>
 <body>
-	        <script src="//vk.com/js/api/xd_connection.js?2"></script>
-<script src="https://ad.mail.ru/static/admanhtml/rbadman-html5.min.js"></script>
-<script src="https://vk.com/js/api/adman_init.js"></script>
-<script src="https://js.appscentrum.com/scr/preroll.js"></script>
+	<script type="text/javascript" src="//vk.com/js/api/xd_connection.js?2" charset="utf-8"></script>
+<script type="text/javascript" src="//ad.mail.ru/static/vkadman.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="//js.appscentrum.com/scr/preroll.js" charset="utf-8"></script>
 <script type="text/javascript">
-window.addEventListener('load', function() {
-
-var user_id = null;
-var app_id = 6702473;
-
-admanInit({
-  user_id: user_id,
-  app_id: app_id,
-  type: 'preloader'
-}, onAdsReady, onNoAds);
-
-function onAdsReady(adman) {
-  adman.onStarted(function () { admanStat(app_id, user_id); });
-  adman.start('preroll');
-};
-
-function onNoAds() {};
+VK.init( function(){
+    var user_id = null;   //id пользователя 
+    var app_id = XXXXXX;  //id вашего приложения
+    var a=new VKAdman();
+     a.onNoAds(function(){console.log("Adman: No ads");});
+     a.onStarted(function(){console.log("Adman: Started");});
+     a.onCompleted(function(){console.log("Adman: Completed");});
+     a.onSkipped(function(){console.log("Adman: Skipped");});
+     a.onClicked(function(){console.log("Adman: Clicked");});
+     // a.setupPreroll(app_id, {preview: 1}); //для проверки корректности работы рекламы
+     a.setupPreroll(app_id);
+     admanStat(app_id, user_id);
 });
-    
 </script>
+	
 	<embed xmlns="http://www.w3.org/1999/xhtml" allowScriptAccess="always" height="600" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="high" src="plazminc.github.io/Drift.swf" type="application/x-shockwave-flash" width="800"/>
 
 </body>
